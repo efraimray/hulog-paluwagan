@@ -1,0 +1,14 @@
+{
+  "name": "hulog-paluwagan",
+  "version": "1.0.0",
+  "description": "Free paluwagan (rotating savings group) planner: payout schedule, fair seeded bunutan draw, hulog tracker. Vanilla JS, works offline.",
+  "private": true,
+  "license": "MIT",
+  "author": "Efraim Ray (https://www.efraimray.com/)",
+  "repository": { "type": "git", "url": "https://github.com/EfraimRay/hulog-paluwagan.git" },
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "test:ui": "node tests/ui.e2e.js",
+    "build:demo": "node tools/build-demo.js"
+  }
+}

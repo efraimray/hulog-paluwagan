@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-build="site">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hulog Paluwagan Planner</title>
+  <meta name="description" content="Free paluwagan planner: payout schedule for kinsenas at katapusan, fair seeded bunutan draw, hulog tracker and Messenger-ready summaries. Runs in your browser.">
+  <meta name="theme-color" content="#16202e">
+  <meta property="og:title" content="Hulog Paluwagan Planner">
+  <meta property="og:description" content="Plan a paluwagan, draw a fair payout order and track every hulog. Free, private, works offline.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content=".github/social-preview.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+  <!--INLINE-CSS-->
+  <link rel="stylesheet" href="css/hulog.css">
+  <!--/INLINE-CSS-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to the planner</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#main" aria-label="Hulog Paluwagan Planner home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="9.6 4"></circle>
+        <circle cx="20" cy="20" r="8" fill="currentColor"></circle>
+      </svg>
+      <span class="brand-text"><b>hulog</b><small>paluwagan planner</small></span>
+    </a>
+    <div class="topbar-tools">
+      <label class="sr-only" for="groupSelect">Choose a paluwagan group</label>
+      <select id="groupSelect" class="select"></select>
+      <button type="button" class="btn btn-ghost" data-act="new-group">New group</button>
+      <button type="button" class="btn btn-icon" data-act="theme" aria-label="Switch light or dark theme" title="Theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="wrap" tabindex="-1">
+  <section class="hero" aria-labelledby="groupTitle">
+    <div class="hero-head">
+      <p class="eyebrow" id="groupMeta">Paluwagan</p>
+      <h1 id="groupTitle">Paluwagan</h1>
+    </div>
+    <div class="hero-grid" id="summary" aria-live="polite"></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Planner sections">
+    <button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" data-tab="schedule">Schedule</button>
+    <button type="button" role="tab" id="tab-tracker" aria-controls="panel-tracker" aria-selected="false" data-tab="tracker">Hulog tracker</button>
+    <button type="button" role="tab" id="tab-members" aria-controls="panel-members" aria-selected="false" data-tab="members">Members &amp; bunutan</button>
+    <button type="button" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" data-tab="settings">Settings</button>
+    <button type="button" role="tab" id="tab-share" aria-controls="panel-share" aria-selected="false" data-tab="share">Share &amp; backup</button>
+  </nav>
+
+  <section class="panel" role="tabpanel" id="panel-schedule" aria-labelledby="tab-schedule"></section>
+  <section class="panel" role="tabpanel" id="panel-tracker" aria-labelledby="tab-tracker" hidden></section>
+  <section class="panel" role="tabpanel" id="panel-members" aria-labelledby="tab-members" hidden></section>
+  <section class="panel" role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" hidden></section>
+  <section class="panel" role="tabpanel" id="panel-share" aria-labelledby="tab-share" hidden></section>
+
+  <section class="about" id="about" aria-labelledby="aboutTitle">
+    <p class="eyebrow">About this project</p>
+    <h2 id="aboutTitle">A paluwagan without the notebook and the arguments</h2>
+    <div class="about-grid">
+      <div>
+        <h3>The problem</h3>
+        <p>A paluwagan (rotating savings group) usually lives in one person's notebook and a group chat. Members lose track of whose turn it is, who has not paid their hulog yet, and whether the payout order was drawn fairly.</p>
+        <h3>Who it is for</h3>
+        <p>Office barkadas, market vendors, cooperatives, church and school groups, and the organizer who collects every kinsenas and katapusan.</p>
+      </div>
+      <div>
+        <h3>What it does</h3>
+        <ul>
+          <li>Payout calendar for weekly, every 2 weeks, 15th &amp; end of month, or monthly</li>
+          <li>Members can hold more than one ulo (slot)</li>
+          <li>Fair bunutan: a seeded draw anyone can re-check</li>
+          <li>Tap-to-mark hulog tracker with late and collecting states</li>
+          <li>Optional organizer fee, Sunday-to-Monday payout rule</li>
+          <li>Messenger-ready summary, CSV export, JSON backup</li>
+        </ul>
+      </div>
+      <div>
+        <h3>How it is built</h3>
+        <p>HTML, CSS and vanilla JavaScript. No framework, no server, no sign-up. Data stays in this browser's storage. The logic lives in one pure file with 12 automated tests.</p>
+        <h3>Install</h3>
+        <p>Open <code>index.html</code>, or host the folder on GitHub Pages or any web host. It also works offline as an installable web app.</p>
+        <p class="about-links"><a href="https://github.com/EfraimRay/hulog-paluwagan">GitHub repository</a> &middot; <a href="https://www.efraimray.com/">Built by Efraim Ray</a></p>
+      </div>
+    </div>
+    <p class="fine">Hulog is a planning tool, not a bank or lending service. It does not hold or move money. The sample group and its members are fictional.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Hulog Paluwagan Planner v<span id="appVersion">1.0.0</span> &middot; MIT License</span>
+    <span>Made in Valencia City, Bukidnon by <a href="https://www.efraimray.com/">Efraim Ray</a></span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<!--INLINE-JS-->
+<script src="js/hulog-core.js"></script>
+<script src="js/hulog-app.js"></script>
+<!--/INLINE-JS-->
+</body>
+</html>

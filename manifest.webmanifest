@@ -1,0 +1,13 @@
+{
+  "name": "Hulog Paluwagan Planner",
+  "short_name": "Hulog",
+  "description": "Plan a paluwagan, draw a fair payout order and track every hulog.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2ee",
+  "theme_color": "#16202e",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
